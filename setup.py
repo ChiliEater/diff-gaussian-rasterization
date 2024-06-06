@@ -26,9 +26,10 @@ setup(
             "cuda_rasterizer/backward.cu",
             "rasterize_points.cu",
             "ext.cpp"],
-            extra_compile_args={"nvcc": ["-I" + os.path.join(os.path.dirname(os.path.abspath(__file__)), "third_party/glm/")]})
+            extra_compile_args={"nvcc": ["-std=c++20", "-I" + os.path.join(os.path.dirname(os.path.abspath(__file__)), "third_party/glm/")]})
         ],
     cmdclass={
         'build_ext': BuildExtension
-    }
+    },
+    install_requires=["torch"]
 )
